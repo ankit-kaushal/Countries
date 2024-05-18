@@ -1,0 +1,10 @@
+.navigation_container {
+    padding: 22px 100px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.navigation_header {
+    font-size: 24px;
+    font-weight: 800;
+    line-height: 32.74px;
+}
