@@ -3,6 +3,7 @@
     align-items: center;
     margin-top: 80px;
     padding: 100px 80px;
+    background: var(--background-color);
 }
   
 .flag_placeholder {
