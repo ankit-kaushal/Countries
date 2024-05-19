@@ -26,3 +26,48 @@
         transform: rotate(-18deg);
     }
 }
+
+@media only screen and (max-width: 600px) {
+    .navigation_container {
+        padding: 15px 20px;
+    }
+
+    .navigation_header {
+        font-size: 18px;
+        line-height: 24px;
+    }
+
+    .toggle_button {
+        font-size: 14px;
+    }
+}
+
+@media only screen and (min-width: 600px) and (max-width: 768px) {
+    .navigation_container {
+        padding: 20px 40px;
+    }
+
+    .navigation_header {
+        font-size: 20px;
+        line-height: 28px;
+    }
+
+    .toggle_button {
+        font-size: 15px;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .navigation_container {
+        padding: 22px 80px;
+    }
+
+    .navigation_header {
+        font-size: 24px;
+        line-height: 32.74px;
+    }
+
+    .toggle_button {
+        font-size: 16px;
+    }
+}

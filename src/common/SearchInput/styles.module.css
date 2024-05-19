@@ -9,15 +9,14 @@
     max-width: 420px;
 }
 
-.search_input  {
-    svg {
-        margin-right: 20px;
-        path {
-            fill: var(--input-color);
-        }
-    }
+.search_input svg {
+    margin-right: 20px;
 }
-  
+
+.search_input svg path {
+    fill: var(--input-color);
+}
+
 .search_input input {
     border: none;
     outline: none;
@@ -29,4 +28,28 @@
 
 .search_input input::placeholder {
     color: var(--input-color);
+}
+
+
+@media only screen and (max-width: 600px) {
+    .search_input {
+        padding: 15px 30px;
+        width: 343px;
+        margin-top: 10px;
+    }
+
+    .search_input input {
+        font-size: 12px;
+    }
+}
+
+@media only screen and (min-width: 600px) and (max-width: 768px) {
+    .search_input {
+        padding: 14px 28px;
+        max-width: 100%;
+    }
+
+    .search_input input {
+        font-size: 13px;
+    }
 }

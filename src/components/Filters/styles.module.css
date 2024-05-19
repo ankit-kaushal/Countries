@@ -3,3 +3,17 @@
     justify-content: space-between;
     padding: 40px 80px;
 }
+
+@media only screen and (max-width: 600px) {
+    .filters_container {
+        flex-direction: column;
+        padding: 20px 20px;
+    }
+}
+
+@media only screen and (min-width: 600px) and (max-width: 768px) {
+    .filters_container {
+        flex-direction: column;
+        padding: 30px 40px;
+    }
+}
