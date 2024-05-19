@@ -6,6 +6,9 @@ import React, {
   KeyboardEvent,
 } from "react";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
+
 import styles from "./styles.module.css";
 
 interface Option {
@@ -18,42 +21,6 @@ interface FilterSelectProps {
   options: Option[];
   onChange: any;
   style?: CSSProperties;
-}
-
-function Icon({ isOpen }: { isOpen: boolean }) {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      width="18"
-      height="18"
-      stroke="#222"
-      strokeWidth="1.5"
-      fill="none"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      className={isOpen ? styles.translate : ""}
-    >
-      <polyline points="6 9 12 15 18 9" />
-    </svg>
-  );
-}
-
-function CloseIcon() {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      width="14"
-      height="14"
-      stroke="#fff"
-      strokeWidth="2"
-      fill="none"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <line x1="18" y1="6" x2="6" y2="18" />
-      <line x1="6" y1="6" x2="18" y2="18" />
-    </svg>
-  );
 }
 
 function FilterSelect({
@@ -104,43 +71,7 @@ function FilterSelect({
       return placeHolder;
     }
 
-    if (Array.isArray(selectedValue) && selectedValue.length === 0) {
-      return placeHolder;
-    }
-
-    if (Array.isArray(selectedValue)) {
-      return (
-        <div className={styles.dropdown_tags}>
-          {selectedValue.map((option, index) => (
-            <div
-              key={`${option.value}-${index}`}
-              className={styles.dropdown_tag_item}
-            >
-              {option.label}
-              <span className={styles.dropdown_tag_close}>
-                <button type="button" onClick={(e) => onTagRemove(e, option)}>
-                  <CloseIcon />
-                </button>
-              </span>
-            </div>
-          ))}
-        </div>
-      );
-    }
-
     return (selectedValue as Option).label;
-  };
-
-  const onTagRemove = (
-    e: React.MouseEvent<HTMLSpanElement>,
-    option: Option
-  ) => {
-    e.stopPropagation();
-    const newValue = (selectedValue as Option[]).filter(
-      (o) => o.value !== option.value
-    );
-    setSelectedValue(newValue);
-    onChange(newValue);
   };
 
   const onItemClick = (option: Option) => {
@@ -180,7 +111,10 @@ function FilterSelect({
       >
         <div className={styles.selected_value}>{getDisplay()}</div>
         <div className={styles.dropdown_icon}>
-          <Icon isOpen={showMenu} />
+          <FontAwesomeIcon
+            icon={faAngleDown}
+            className={showMenu ? styles.translate : ""}
+          />
         </div>
       </div>
 

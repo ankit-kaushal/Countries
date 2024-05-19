@@ -7,6 +7,21 @@
   --white-dark-mode-text-light-mode-elements: hsl(0, 0%, 100%);
 }
 
+
+:root {
+  --background-color: hsl(0, 0%, 98%);
+  --elements-background-color: hsl(0, 0%, 100%);
+  --text-color: hsl(200, 15%, 8%);
+  --input-color: hsl(0, 0%, 52%);
+}
+
+[data-theme='dark'] {
+  --background-color: hsl(207, 26%, 17%);
+  --elements-background-color: hsl(209, 23%, 22%);
+  --text-color: hsl(0, 0%, 100%);
+  --input-color: hsl(0, 0%, 100%);
+}
+
 body {
   margin: 0;
   font-family: "Nunito Sans", sans-serif;

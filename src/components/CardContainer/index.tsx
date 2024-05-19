@@ -32,11 +32,12 @@ const CardContainer: React.FC<CardContainerProps> = ({
   }
   return (
     <div className={styles.card_container}>
-      <img
-        src={country.flags.png}
-        alt={`Flag of ${country.name.common}`}
+      <div
         className={styles.country_flag}
-      />
+        style={{ backgroundImage: `url(${country.flags.png})` }}
+      >
+        {/* <img src={country.flags.png} alt={`Flag of ${country.name.common}`} /> */}
+      </div>
       <div className={styles.card_info_container}>
         <h2>{country.name.common}</h2>
         <p>

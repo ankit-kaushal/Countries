@@ -1,5 +1,5 @@
 .container {
-    background: #fafafa;
+    background: var(--background-color);
 }
 
 .countries_list_container {

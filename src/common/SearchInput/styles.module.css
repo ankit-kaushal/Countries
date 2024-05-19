@@ -1,7 +1,7 @@
 .search_input {
     display: flex;
     align-items: center;
-    background-color: #fff;
+    background-color: var(--elements-background-color);
     border-radius: 4px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     padding: 16px 32px;
@@ -13,7 +13,7 @@
     svg {
         margin-right: 20px;
         path {
-            fill: #848484;
+            fill: var(--input-color);
         }
     }
 }
@@ -23,9 +23,10 @@
     outline: none;
     width: 100%;
     font-size: 14px;
-    color: #333;
+    background: none;
+    color: var(--text-color);
 }
 
 .search_input input::placeholder {
-    color: #848484;
+    color: var(--input-color);
 }

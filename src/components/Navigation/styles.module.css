@@ -1,6 +1,8 @@
 .navigation_container {
+    display: flex;
+    justify-content: space-between;
     padding: 22px 80px;
-    background: #fff;
+    background: var(--elements-background-color);
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
@@ -8,4 +10,19 @@
     font-size: 24px;
     font-weight: 800;
     line-height: 32.74px;
+    color: var(--text-color);
+}
+
+.toggle_button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--text-color);
+
+    svg {
+        margin-right: 8px;
+        transform: rotate(-18deg);
+    }
 }

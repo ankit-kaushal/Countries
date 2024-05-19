@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { ThemeProvider } from "../common/ThemeContext";
 import Navigation from "./Navigation/index.";
 import Filters from "./Filters";
 import CardContainer from "./CardContainer";
@@ -43,16 +44,18 @@ const Countries: React.FC = () => {
   }, [filters]);
 
   return (
-    <div className={styles.container}>
-      <Navigation />
-      <Filters filters={filters} setFilters={setFilters} />
+    <ThemeProvider>
+      <div className={styles.container}>
+        <Navigation />
+        <Filters filters={filters} setFilters={setFilters} />
 
-      <div className={styles.countries_list_container}>
-        {countries.map((country) => (
-          <CardContainer country={country} loading={loading} />
-        ))}
+        <div className={styles.countries_list_container}>
+          {countries.map((country) => (
+            <CardContainer country={country} loading={loading} />
+          ))}
+        </div>
       </div>
-    </div>
+    </ThemeProvider>
   );
 };
 
