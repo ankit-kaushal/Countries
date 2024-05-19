@@ -1,23 +1,29 @@
 const API_URL = "https://restcountries.com/v3.1";
-
-interface Country {
+export interface Country {
   name: {
     common: string;
+    nativeName: { [key: string]: { official: string; common: string } };
   };
   population: number;
   region: string;
-  capital?: string[];
-  flags: {
-    png: string;
-  };
+  subregion: string;
+  capital: string[];
+  tld: string[];
+  currencies: { [key: string]: { name: string; symbol: string } };
+  languages: { [key: string]: string };
+  borders: string[];
+  flags: { png: string };
+  cca3: string;
 }
-
 interface Filters {
   region?: string;
   name?: string;
+  cca3?: string;
 }
 
 const fetchCountries = async (filters: Filters = {}): Promise<Country[]> => {
+  console.log("filters", filters);
+
   try {
     let url = `${API_URL}/all`;
 
@@ -25,6 +31,8 @@ const fetchCountries = async (filters: Filters = {}): Promise<Country[]> => {
       url = `${API_URL}/region/${filters.region}`;
     } else if (filters.name) {
       url = `${API_URL}/name/${filters.name}?fullText=false`;
+    } else if (filters.cca3) {
+      url = `${API_URL}/alpha/${filters.cca3}`;
     }
 
     const response = await fetch(url);

@@ -1,18 +1,9 @@
 import React from "react";
-import styles from "./styles.module.css";
+import { Link } from "react-router-dom";
 import CardLoading from "../../common/CardLoading";
+import { Country } from "../../hooks/fetchCountries";
 
-interface Country {
-  name: {
-    common: string;
-  };
-  population: number;
-  region: string;
-  capital?: string[];
-  flags: {
-    png: string;
-  };
-}
+import styles from "./styles.module.css";
 
 interface CardContainerProps {
   country: Country;
@@ -31,26 +22,25 @@ const CardContainer: React.FC<CardContainerProps> = ({
     return null;
   }
   return (
-    <div className={styles.card_container}>
+    <Link to={`/country/${country.cca3}`} className={styles.card_container}>
       <div
         className={styles.country_flag}
         style={{ backgroundImage: `url(${country.flags.png})` }}
-      >
-        {/* <img src={country.flags.png} alt={`Flag of ${country.name.common}`} /> */}
-      </div>
+      ></div>
       <div className={styles.card_info_container}>
         <h2>{country.name.common}</h2>
         <p>
-          <span>Population:</span> {country.population.toLocaleString()}
+          <strong>Population:</strong> {country.population.toLocaleString()}
         </p>
         <p>
-          <span>Region:</span> {country.region}
+          <strong>Region:</strong> {country.region}
         </p>
         <p>
-          <span>Capital:</span> {country.capital ? country.capital[0] : "N/A"}
+          <strong>Capital:</strong>{" "}
+          {country.capital ? country.capital[0] : "N/A"}
         </p>
       </div>
-    </div>
+    </Link>
   );
 };
 
