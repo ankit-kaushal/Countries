@@ -11,12 +11,15 @@
     font-size: 16px;
     font-weight: 500;
     color: var(--text-color);
+    background: var(--elements-background-color);
+    padding: 8px 28px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 4px 1px #0000001B;
 
     svg {
         margin-right: 8px;
     }
 }
-
 
 .details_container {
     display: flex;
@@ -61,4 +64,39 @@
     background: var(--elements-background-color);
     color: var(--text-color);
     font-size: 14px;
+}
+
+@media (max-width: 767px) {
+    .country_details_container {
+        padding: 40px 20px;
+    }
+
+    .details_container {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 20px;
+    }
+
+    .country_flag {
+        width: 100%;
+        height: auto;
+        margin-right: 0;
+        margin-top: 40px;
+        margin-bottom: 20px;
+    }
+
+    .countries_information {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .border_countries_container {
+        flex-direction: column;
+        align-items: flex-start;
+        margin-top: 20px;
+
+        strong {
+            margin-bottom: 10px;
+        }
+    }
 }

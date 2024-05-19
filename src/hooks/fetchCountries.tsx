@@ -22,8 +22,6 @@ interface Filters {
 }
 
 const fetchCountries = async (filters: Filters = {}): Promise<Country[]> => {
-  console.log("filters", filters);
-
   try {
     let url = `${API_URL}/all`;
 

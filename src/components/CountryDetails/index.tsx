@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import fetchCountries, { Country } from "../../hooks/fetchCountries";
+import CardDetailLoading from "../../common/CardDetailLoading";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeftLong } from "@fortawesome/free-solid-svg-icons";
@@ -38,7 +39,7 @@ const CountryDetails: React.FC = () => {
 
   useEffect(() => {
     const fetchBorderCountries = async () => {
-      if (country && country.borders.length > 0) {
+      if (country && country?.borders?.length > 0) {
         try {
           const response = await fetch(
             `https://restcountries.com/v3.1/alpha?codes=${country.borders.join(
@@ -60,7 +61,7 @@ const CountryDetails: React.FC = () => {
   }, [country]);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <CardDetailLoading />;
   }
 
   if (!country) {
@@ -81,13 +82,11 @@ const CountryDetails: React.FC = () => {
         Back
       </button>
       <div className={styles.details_container}>
-        <div>
-          <img
-            src={country.flags.png}
-            alt={`${country.name.common} flag`}
-            className={styles.country_flag}
-          />
-        </div>
+        <img
+          src={country.flags.png}
+          alt={`${country.name.common} flag`}
+          className={styles.country_flag}
+        />
         <div>
           <h1>{country.name.common}</h1>
           <div className={styles.countries_information}>
