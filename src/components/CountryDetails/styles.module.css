@@ -15,10 +15,16 @@
     padding: 8px 28px;
     border-radius: 5px;
     box-shadow: 0px 0px 4px 1px #0000001B;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
 
     svg {
         margin-right: 8px;
     }
+}
+
+.back_navigation:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transform: scale(1.05);
 }
 
 .details_container {
@@ -64,6 +70,12 @@
     background: var(--elements-background-color);
     color: var(--text-color);
     font-size: 14px;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.border_countries:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transform: scale(1.08);
 }
 
 @media (max-width: 767px) {

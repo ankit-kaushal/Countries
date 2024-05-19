@@ -28,6 +28,19 @@
     }
 }
 
+.rotate {
+    animation: rotateIcon 0.5s linear;
+}
+
+@keyframes rotateIcon {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+}
+
 @media only screen and (max-width: 600px) {
     .navigation_container {
         padding: 15px 20px;

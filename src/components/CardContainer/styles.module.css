@@ -8,6 +8,12 @@
     border-radius: 5px;
     color: var(--text-color);
     text-decoration: none;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.card_container:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transform: scale(1.05);
 }
 
 .country_flag {
