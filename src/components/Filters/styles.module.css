@@ -1,0 +1,5 @@
+.filters_container {
+    display: flex;
+    justify-content: space-between;
+    padding: 40px 80px;
+}
