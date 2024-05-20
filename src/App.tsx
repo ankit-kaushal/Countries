@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import { ThemeProvider } from "./common/ThemeContext";
-import Navigation from "./components/Navigation/index.";
+import Navigation from "./components/Navigation";
 import CountriesList from "./components/CountriesList";
 import CountryDetails from "./components/CountryDetails";
 
