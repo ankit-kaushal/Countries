@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import CardLoading from "../../common/CardLoading";
 import { Country } from "../../hooks/fetchCountries";
 
@@ -15,7 +15,9 @@ const CardContainer: React.FC<CardContainerProps> = ({
   loading = false,
 }) => {
   const [isInView, setIsInView] = useState(false);
+  const [animation, setAnimation] = useState(false);
   const imgRef = useRef<HTMLDivElement>(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -44,6 +46,13 @@ const CardContainer: React.FC<CardContainerProps> = ({
     };
   }, []);
 
+  const handleClick = () => {
+    setAnimation(true);
+    setTimeout(() => {
+      navigate(`/country/${country.cca3}`);
+    }, 500);
+  };
+
   if (loading) {
     return <CardLoading />;
   }
@@ -52,7 +61,12 @@ const CardContainer: React.FC<CardContainerProps> = ({
     return null;
   }
   return (
-    <Link to={`/country/${country.cca3}`} className={styles.card_container}>
+    <div
+      onClick={handleClick}
+      className={`${styles.card_container} ${
+        animation ? styles["fade_down"] : ""
+      }`}
+    >
       <div
         ref={imgRef}
         className={styles.country_flag}
@@ -71,7 +85,7 @@ const CardContainer: React.FC<CardContainerProps> = ({
           {country.capital ? country.capital[0] : "N/A"}
         </p>
       </div>
-    </Link>
+    </div>
   );
 };
 
