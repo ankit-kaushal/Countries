@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import CardLoading from "../../common/CardLoading";
 import { Country } from "../../hooks/fetchCountries";
@@ -14,37 +14,8 @@ const CardContainer: React.FC<CardContainerProps> = ({
   country,
   loading = false,
 }) => {
-  const [isInView, setIsInView] = useState(false);
   const [animation, setAnimation] = useState(false);
-  const imgRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setIsInView(true);
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      {
-        rootMargin: "0px",
-        threshold: 0.1,
-      }
-    );
-
-    if (imgRef.current) {
-      observer.observe(imgRef.current);
-    }
-
-    return () => {
-      if (imgRef.current) {
-        observer.unobserve(imgRef.current);
-      }
-    };
-  }, []);
 
   const handleClick = () => {
     setAnimation(true);
@@ -60,17 +31,19 @@ const CardContainer: React.FC<CardContainerProps> = ({
   if (!country) {
     return null;
   }
+
   return (
     <div
       onClick={handleClick}
       className={`${styles.card_container} ${
-        animation ? styles["fade_down"] : ""
+        animation ? styles.fade_down : ""
       }`}
     >
       <div
-        ref={imgRef}
         className={styles.country_flag}
-        style={{ backgroundImage: isInView ? `url(${country.flags.png})` : "" }}
+        style={{
+          backgroundImage: `url(${country.flags.png})`,
+        }}
       ></div>
       <div className={styles.card_info_container}>
         <h2>{country.name.common}</h2>
