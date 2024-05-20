@@ -2,6 +2,7 @@
     background: var(--background-color);
     color: var(--text-color);
     padding: 100px 80px;
+    animation: fadeUp 0.5s ease-in-out;
 }
 
 .back_navigation {
@@ -110,5 +111,17 @@
         strong {
             margin-bottom: 10px;
         }
+    }
+}
+
+
+@keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
     }
 }

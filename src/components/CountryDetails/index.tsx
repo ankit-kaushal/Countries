@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import fetchCountries, { Country } from "../../hooks/fetchCountries";
 import CardDetailLoading from "../../common/CardDetailLoading";
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeftLong } from "@fortawesome/free-solid-svg-icons";
 
@@ -25,7 +24,7 @@ const CountryDetails: React.FC = () => {
         if (data.length > 0) {
           setCountry(data[0]);
         } else {
-          console.error("No country found for the given cioc:", id);
+          console.error("No country found for the given cca3:", id);
         }
       } catch (error) {
         console.error("Error fetching country details:", error);
@@ -39,7 +38,7 @@ const CountryDetails: React.FC = () => {
 
   useEffect(() => {
     const fetchBorderCountries = async () => {
-      if (country && country?.borders?.length > 0) {
+      if (country && country?.borders && country?.borders?.length > 0) {
         try {
           const response = await fetch(
             `https://restcountries.com/v3.1/alpha?codes=${country.borders.join(
