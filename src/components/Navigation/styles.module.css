@@ -6,7 +6,7 @@
     padding: 22px 80px;
     background: var(--elements-background-color);
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-}
+  }
   
 .navigation_header {
     font-size: 24px;
@@ -24,29 +24,21 @@
     font-size: 16px;
     font-weight: 500;
     color: var(--text-color);
-    transition: all 1s ease;
 }
   
-.toggle_button .icon {
-    transition: transform 1s ease, margin 1s ease;
-    transform: rotate(-18deg);
-    margin-right: 8px;
-}
-  
+.toggle_button .icon,
 .toggle_button .text {
-    transition: transform 1s ease, margin 1s ease;
+    margin-right: 8px;
+    transition: transform 1s ease;
+}
+  
+.toggle_button:hover .icon,
+.toggle_button:hover .text {
+    transform: scale(0.8);
 }
   
 .toggle_button:hover .icon {
-    order: 1;
-    margin-left: 8px;
-    margin-right: 0;
-}
-  
-.toggle_button:hover .text {
-    order: 0;
-    margin-left: 0;
-    margin-right: 8px;
+    transform: scale(1.2);
 }
   
 .rotate {
@@ -61,7 +53,7 @@
       transform: rotate(360deg);
     }
 }
-  
+ 
 @media only screen and (max-width: 600px) {
     .navigation_container {
         padding: 15px 20px;

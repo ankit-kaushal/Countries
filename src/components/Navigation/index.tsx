@@ -15,7 +15,7 @@ const Navigation: React.FC = () => {
       const timeout = setTimeout(() => {
         setIcon(theme === "light" ? faMoon : faSun);
         setRotateIcon(false);
-      }, 1000);
+      }, 1000); // Match the transition duration
       return () => clearTimeout(timeout);
     }
   }, [rotateIcon, theme]);
