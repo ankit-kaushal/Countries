@@ -15,7 +15,7 @@ const Navigation: React.FC = () => {
       const timeout = setTimeout(() => {
         setIcon(theme === "light" ? faMoon : faSun);
         setRotateIcon(false);
-      }, 500);
+      }, 1000);
       return () => clearTimeout(timeout);
     }
   }, [rotateIcon, theme]);
@@ -30,9 +30,11 @@ const Navigation: React.FC = () => {
       <button onClick={toggleTheme} className={styles.toggle_button}>
         <FontAwesomeIcon
           icon={icon}
-          className={rotateIcon ? styles.rotate : ""}
+          className={`${styles.icon} ${rotateIcon ? styles.rotate : ""}`}
         />
-        {theme === "light" ? "Dark" : "Light"} Mode
+        <span className={styles.text}>
+          {theme === "light" ? "Dark" : "Light"} Mode
+        </span>
       </button>
     </div>
   );
