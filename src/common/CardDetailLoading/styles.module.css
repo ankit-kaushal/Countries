@@ -1,8 +1,7 @@
 .card_detail_loading_container {
     display: flex;
     align-items: center;
-    margin-top: 80px;
-    padding: 100px 80px;
+    padding: 180px 80px;
     background: var(--background-color);
 }
   
